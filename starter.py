@@ -45,7 +45,7 @@ def create_model(x_train, y_train, x_test, y_test):
         # Add pooling
         # Flatten
         # (Add Hidden Layers??)
-        # Add output layer for all 10 digits
+        # Add output layer for all 10 digits. Use a "softmax" activation
 
     # 2. Compile neural network
     # You can try with "adam" optimizer and "categorical_crossentropy" loss
