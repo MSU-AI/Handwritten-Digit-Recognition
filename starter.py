@@ -1,7 +1,6 @@
 import tensorflow as tf
 from tensorflow.keras.models import Sequential, load_model
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
-import matplotlib.pyplot as plt
 
 
 def load_data():
@@ -38,8 +37,9 @@ def load_data():
 
 def create_model(x_train, y_train, x_test, y_test):
     ########################## Create your CNN ####################################
+    model = None
+
     # 1. Build the structure of your NN
-    
         # Add the convolutional input layer
         # Specify the input shape, activation, kernel size, and neurons
         # Add pooling
@@ -47,20 +47,27 @@ def create_model(x_train, y_train, x_test, y_test):
         # (Add Hidden Layers??)
         # Add output layer for all 10 digits. Use a "softmax" activation
 
+
     # 2. Compile neural network
     # You can try with "adam" optimizer and "categorical_crossentropy" loss
-
-    # 3. Fit neural network, choose n° of epochs
-    # Start only with the number of epochs and do not worry about validation data
+    # Train neural network
+    model.compile(
+        optimizer="adam",
+        loss="categorical_crossentropy",
+        metrics=["accuracy"]
+        )
     
+    # 3. Fit neural network, choose n° of epochs
+    model.fit(x_train, y_train, epochs="choose a number of epochs!")
+
     # 4. Evaluate neural network performance
-    # Call .evaluate method on your model
+    model.evaluate(x_test,  y_test, verbose=2)
     
     # 5. Save the model as "model.h5"
+    model.save('model.h5')
     
     # 6. Return your model
-    
-    return
+    return model
     
 
 def import_model():

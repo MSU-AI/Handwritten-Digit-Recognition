@@ -1,8 +1,6 @@
 import numpy as np
 import pygame
 import sys
-import tensorflow as tf
-import time
 import handwriting
 
 # Check command-line arguments
